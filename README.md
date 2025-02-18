@@ -2,6 +2,7 @@
 
 This repository provides the complete code for training and testing several recommenders, based on our paper "Reassessing the Effectiveness of Reinforcement Learning based Recommender Systems for Sequential Recommendation" by Dilina Rajapakse and Dietmar Jannach (Submitted to SIGIR 2025).
 
+For full results, hyper-parameters and additional information, visit our [Online Material](https://dilina-r.github.io/rl-rec/) page.
 
 The algorithms and pre-processing methods are based on existing code developed and shared by:
 
@@ -77,6 +78,8 @@ Below environments require Anaconda to be installed. Download and Install from h
     ```
 
 - The **run_rl.sh** script contains the commands for each RL baseline and the enhanced SQN, EVAL methods. Comment/Uncomment as needed to run each approach.
+
+- To run SKNN and VSKNN methods, we used the [session-rec](https://github.com/rn5l/session-rec) framework with the processed datasets. To reproduce our results, refer to our [Online material](https://dilina-r.github.io/rl-rec/), where we provide the full results and hyper-parameters for each protocol.
 
 # References
 

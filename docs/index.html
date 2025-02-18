@@ -49,6 +49,10 @@
         <p class="abstract">
             Over the past few years, researchers have explored the use of reinforcement learning (RL) for sequential recommendation problems. However, since RL techniques commonly target at optimizing long-term rewards, it is surprising that RL-based models are reported to be competitive with traditional supervised models when evaluated under the myopic next-item prediction protocol. A recent study suggests that reported performance gains of combining RL with supervised learning techniques, as done in the Self-Supervised Q-Learning (SQN) framework, may actually not come from learning an optimal policy, but that the RL component helps to learn embeddings that encode the users' past interactions. Given these observations, we aimed to reassess the performance of RL-enhanced sequential recommendations in the SQN framework. While we were able to reproduce the results reported in the respective papers, we found that properly-tuned supervised learning models like GRU4Rec substantially outperform the proposed RL-models from the literature. Our analyses furthermore revealed that there is a significant inconsistency in terms of evaluation protocols in the literature, and that the use of third-party implementations of existing models may lead to unreliable conclusions. Overall, still more research and alternative evaluation schemes seem required to fully leverage the power of RL for sequential recommendation tasks.
         </p>
+
+        <hr>
+
+        <p class="sub-title">Source code available at : <a href="https://github.com/dilina-r/rl-rec" target="_blank">https://github.com/dilina-r/rl-rec</a></p>
     </div>
 
     <div id="gru-results" class="content">
@@ -110,6 +114,9 @@
 
         <div id="tbl-digi-sqn" class="sub-content">
             <h4>Diginetica Clicks - Full Results</h4>
+
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.251</td><td>0.140</td><td>0.168</td><td>0.354</td><td>0.154</td><td>0.201</td><td>0.465</td><td>0.162</td><td>0.229</td></tr><tr><td>VSKNN</td><td>0.247</td><td>0.139</td><td>0.165</td><td>0.349</td><td>0.152</td><td>0.198</td><td>0.465</td><td>0.160</td><td>0.227</td></tr><tr><td>GRU4Rec</td><td>0.261</td><td>0.145</td><td>0.174</td><td>0.376</td><td>0.160</td><td>0.211</td><td>0.504</td><td>0.169</td><td>0.243</td></tr><tr><td>NARM</td><td>0.242</td><td>0.139</td><td>0.164</td><td>0.342</td><td>0.152</td><td>0.197</td><td>0.459</td><td>0.160</td><td>0.226</td></tr><tr><td>SAS(RL)</td><td>0.175</td><td>0.094</td><td>0.114</td><td>0.269</td><td>0.106</td><td>0.144</td><td>0.383</td><td>0.114</td><td>0.173</td></tr>
+                <tr><td>SAS-SQN</td><td>0.178</td><td>0.096</td><td>0.116</td><td>0.271</td><td>0.108</td><td>0.146</td><td>0.386</td><td>0.116</td><td>0.175</td></tr><tr><td>SAS-EVAL</td><td>0.178</td><td>0.096</td><td>0.116</td><td>0.271</td><td>0.108</td><td>0.146</td><td>0.389</td><td>0.116</td><td>0.176</td></tr><tr><td>GRU(RL)</td><td>0.103</td><td>0.055</td><td>0.067</td><td>0.157</td><td>0.062</td><td>0.085</td><td>0.225</td><td>0.067</td><td>0.102</td></tr><tr><td>GRU-SQN</td><td>0.120</td><td>0.064</td><td>0.078</td><td>0.182</td><td>0.072</td><td>0.098</td><td>0.257</td><td>0.077</td><td>0.117</td></tr><tr><td>GRU-EVAL</td><td>0.120</td><td>0.064</td><td>0.078</td><td>0.182</td><td>0.072</td><td>0.098</td><td>0.256</td><td>0.077</td><td>0.117</td></tr></tbody></table>
         </div>
     </div>
 
