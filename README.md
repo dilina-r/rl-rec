@@ -85,7 +85,8 @@ Below environments require Anaconda to be installed. Download and Install from h
 
 
 > [!NOTE]  
-> The data splits generated for the Yoochoose dataset using the *SQN-protocol* may differ from the data used in our experiments, due to the random-sampling of sessions during pre-processing. Therefore using the same hyperparameters could yield different results. 
+> The data splits generated for the Yoochoose dataset using the *SQN-protocol* might not exactly match those used in our experiments due to the random selection of sessions during pre-processing. As a result, applying the same hyperparameters may not reproduce the results.
+
 
 # References
 
