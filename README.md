@@ -83,6 +83,10 @@ Below environments require Anaconda to be installed. Download and Install from h
 
 - To run the SKNN and VSKNN methods, we used the [session-rec](https://github.com/rn5l/session-rec) framework with the processed datasets. To reproduce our results, refer to our [Online material](https://dilina-r.github.io/rl-rec/), where we provide the full results and hyperparameters for each protocol.
 
+
+> [!NOTE]  
+> The data splits generated for the Yoochoose dataset using the *SQN-protocol* may differ from the data used in our experiments, due to the random-sampling of sessions during pre-processing. Therefore using the same hyperparameters could yield different results. 
+
 # References
 
 [1] Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, Domonkos Tikk: Session-based Recommendations with Recurrent Neural Networks, ICLR 2016
