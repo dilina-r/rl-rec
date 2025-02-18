@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGIR 2025 - Additional Online Material</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="parent-tab">
+        <div class="parent-tablink active" onclick="openParentTab(event, 'intro')">Introduction</div>
+        <div class="parent-tablink" onclick="openParentTab(event, 'gru-results')">GRU4Rec Protocol Results</div>
+        <div class="parent-tablink" onclick="openParentTab(event, 'sqn-results')">SQN Protocol Results</div>
+        <div class="parent-tablink" onclick="openParentTab(event, 'hyper-params')">Hyper-parameters</div>
+    </div>
+
+
+    <div id="intro" class="content active">
+        <h2 class="paper-title">Reassessing the Effectiveness of Reinforcement Learning based Recommender Systems for Sequential Recommendation</h2>
+        
+        <h3 class="sub-title">
+            Additional Online Material: Source Code, Full Results, Hyper-parameters
+        </h3>
+
+        <hr>
+
+        <table class="auth"><thead>
+            <tr>
+            <th class="auth-name">Dilina Chandika Rajapakse</th>
+            <th class="auth-name">Dietmar Jannach</th>
+            </tr></thead>
+        <tbody>
+            <tr>
+            <td class="auth-uni">Trinity College Dublin, Ireland</td>
+            <td class="auth-uni">University of Klagenfurt, Austria</td>
+            </tr>
+            <tr>
+            <td class="auth-em">rajapakd[at]tcd.ie</td>
+            <td class="auth-em">dietmar.jannach[at]aau.at</td>
+            </tr>
+        </tbody>
+        </table>
+
+        <hr>
+
+        <p class="abstract">
+            Over the past few years, researchers have explored the use of reinforcement learning (RL) for sequential recommendation problems. However, since RL techniques commonly target at optimizing long-term rewards, it is surprising that RL-based models are reported to be competitive with traditional supervised models when evaluated under the myopic next-item prediction protocol. A recent study suggests that reported performance gains of combining RL with supervised learning techniques, as done in the Self-Supervised Q-Learning (SQN) framework, may actually not come from learning an optimal policy, but that the RL component helps to learn embeddings that encode the users' past interactions. Given these observations, we aimed to reassess the performance of RL-enhanced sequential recommendations in the SQN framework. While we were able to reproduce the results reported in the respective papers, we found that properly-tuned supervised learning models like GRU4Rec substantially outperform the proposed RL-models from the literature. Our analyses furthermore revealed that there is a significant inconsistency in terms of evaluation protocols in the literature, and that the use of third-party implementations of existing models may lead to unreliable conclusions. Overall, still more research and alternative evaluation schemes seem required to fully leverage the power of RL for sequential recommendation tasks.
+        </p>
+    </div>
+
+    <div id="gru-results" class="content">
+        <div class="tab">
+            <div class="tablink active" onclick="openTab(event, 'tbl-rc15-gru')">Yoochoose</div>
+            <div class="tablink" onclick="openTab(event, 'tbl-retail-gru')">RetailRocket</div>
+            <div class="tablink" onclick="openTab(event, 'tbl-digi-gru')">Diginetica</div>
+        </div>
+        
+        <div id="tbl-rc15-gru" class="sub-content active">
+            <h4>Yoochoose - Full Results (Clicks only)</h4>
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.395</td><td>0.226</td><td>0.268</td><td>0.527</td><td>0.244</td><td>0.311</td><td>0.646</td><td>0.253</td><td>0.341</td></tr><tr><td>VSKNN</td><td>0.460</td><td>0.263</td><td>0.312</td><td>0.592</td><td>0.281</td><td>0.355</td><td>0.699</td><td>0.289</td><td>0.382</td></tr><tr><td>GRU4Rec</td><td>0.477</td><td>0.285</td><td>0.333</td><td>0.609</td><td>0.303</td><td>0.376</td><td>0.713</td><td>0.310</td><td>0.402</td></tr><tr><td>NARM</td><td>0.475</td><td>0.285</td><td>0.332</td><td>0.609</td><td>0.303</td><td>0.375</td><td>0.715</td><td>0.310</td><td>0.402</td></tr><tr><td>SAS(RL)</td><td>0.466</td><td>0.278</td><td>0.324</td><td>0.595</td><td>0.295</td><td>0.366</td><td>0.700</td><td>0.302</td><td>0.393</td></tr>
+                <tr><td>SAS-SQN</td><td>0.466</td><td>0.277</td><td>0.324</td><td>0.596</td><td>0.295</td><td>0.366</td><td>0.703</td><td>0.302</td><td>0.394</td></tr><tr><td>SAS-EVAL</td><td>0.467</td><td>0.277</td><td>0.324</td><td>0.598</td><td>0.295</td><td>0.367</td><td>0.704</td><td>0.302</td><td>0.394</td></tr><tr><td>GRU(RL)</td><td>0.402</td><td>0.241</td><td>0.281</td><td>0.520</td><td>0.257</td><td>0.319</td><td>0.622</td><td>0.264</td><td>0.345</td></tr><tr><td>GRU-SQN</td><td>0.417</td><td>0.248</td><td>0.290</td><td>0.539</td><td>0.265</td><td>0.330</td><td>0.643</td><td>0.272</td><td>0.356</td></tr><tr><td>GRU-EVAL</td><td>0.419</td><td>0.249</td><td>0.291</td><td>0.544</td><td>0.266</td><td>0.332</td><td>0.647</td><td>0.273</td><td>0.358</td></tr></tbody></table>
+        </div>
+        
+        <div id="tbl-retail-gru" class="sub-content">
+            <h4>RetailRocket - Full Results (Views only)</h4>
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.462</td><td>0.328</td><td>0.362</td><td>0.535</td><td>0.338</td><td>0.385</td><td>0.593</td><td>0.342</td><td>0.400</td></tr><tr><td>VSKNN</td><td>0.466</td><td>0.331</td><td>0.365</td><td>0.537</td><td>0.341</td><td>0.388</td><td>0.596</td><td>0.345</td><td>0.403</td></tr><tr><td>GRU4Rec</td><td>0.419</td><td>0.279</td><td>0.314</td><td>0.518</td><td>0.292</td><td>0.346</td><td>0.610</td><td>0.299</td><td>0.369</td></tr><tr><td>NARM</td><td>0.438</td><td>0.327</td><td>0.355</td><td>0.499</td><td>0.336</td><td>0.375</td><td>0.556</td><td>0.340</td><td>0.389</td></tr><tr><td>SAS(RL)</td><td>0.358</td><td>0.237</td><td>0.267</td><td>0.437</td><td>0.248</td><td>0.293</td><td>0.506</td><td>0.253</td><td>0.310</td></tr>
+                <tr><td>SAS-SQN</td><td>0.367</td><td>0.247</td><td>0.277</td><td>0.447</td><td>0.258</td><td>0.303</td><td>0.519</td><td>0.263</td><td>0.321</td></tr><tr><td>SAS-EVAL</td><td>0.372</td><td>0.250</td><td>0.281</td><td>0.453</td><td>0.261</td><td>0.307</td><td>0.523</td><td>0.266</td><td>0.324</td></tr><tr><td>GRU(RL)</td><td>0.317</td><td>0.211</td><td>0.238</td><td>0.379</td><td>0.220</td><td>0.258</td><td>0.433</td><td>0.224</td><td>0.272</td></tr><tr><td>GRU-SQN</td><td>0.332</td><td>0.226</td><td>0.252</td><td>0.398</td><td>0.235</td><td>0.274</td><td>0.455</td><td>0.239</td><td>0.288</td></tr><tr><td>GRU-EVAL</td><td>0.336</td><td>0.228</td><td>0.255</td><td>0.397</td><td>0.237</td><td>0.275</td><td>0.454</td><td>0.240</td><td>0.289</td></tr></tbody></table>
+        </div>
+
+        <div id="tbl-digi-gru" class="sub-content">
+            <h4>Diginetica - Full Results (Views only)</h4>
+        </div>
+    </div>
+
+    <div id="sqn-results" class="content">
+        <div class="tab">
+            <div class="tablink active" onclick="openTab(event, 'tbl-rc15-sqn')">Yoochoose</div>
+            <div class="tablink" onclick="openTab(event, 'tbl-retail-sqn')">RetailRocket</div>
+            <div class="tablink" onclick="openTab(event, 'tbl-digi-sqn')">Diginetica</div>
+        </div>
+        
+        <div id="tbl-rc15-sqn" class="sub-content active">
+            <h4>Yoochoose Clicks - Full Results</h4>
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.362</td><td>0.220</td><td>0.255</td><td>0.462</td><td>0.233</td><td>0.288</td><td>0.542</td><td>0.239</td><td>0.308</td></tr><tr><td>VSKNN</td><td>0.402</td><td>0.243</td><td>0.283</td><td>0.498</td><td>0.256</td><td>0.314</td><td>0.580</td><td>0.262</td><td>0.335</td></tr><tr><td>GRU4Rec</td><td>0.426</td><td>0.258</td><td>0.300</td><td>0.533</td><td>0.272</td><td>0.335</td><td>0.617</td><td>0.278</td><td>0.356</td></tr><tr><td>NARM</td><td>0.373</td><td>0.220</td><td>0.258</td><td>0.478</td><td>0.235</td><td>0.292</td><td>0.562</td><td>0.240</td><td>0.314</td></tr><tr><td>SAS(RL)</td><td>0.359</td><td>0.212</td><td>0.249</td><td>0.464</td><td>0.226</td><td>0.283</td><td>0.551</td><td>0.233</td><td>0.305</td></tr>
+                <tr><td>SAS-SQN</td><td>0.367</td><td>0.215</td><td>0.252</td><td>0.469</td><td>0.228</td><td>0.286</td><td>0.560</td><td>0.235</td><td>0.309</td></tr><tr><td>SAS-EVAL</td><td>0.366</td><td>0.218</td><td>0.255</td><td>0.474</td><td>0.233</td><td>0.290</td><td>0.560</td><td>0.239</td><td>0.312</td></tr><tr><td>GRU(RL)</td><td>0.300</td><td>0.176</td><td>0.207</td><td>0.390</td><td>0.188</td><td>0.236</td><td>0.463</td><td>0.193</td><td>0.254</td></tr><tr><td>GRU-SQN</td><td>0.305</td><td>0.178</td><td>0.210</td><td>0.396</td><td>0.191</td><td>0.239</td><td>0.473</td><td>0.196</td><td>0.259</td></tr><tr><td>GRU-EVAL</td><td>0.307</td><td>0.180</td><td>0.211</td><td>0.400</td><td>0.192</td><td>0.241</td><td>0.476</td><td>0.198</td><td>0.261</td></tr></tbody></table>
+
+            <hr>
+
+            <h4>Yoochoose Purchases - Full Results</h4>
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.619</td><td>0.400</td><td>0.455</td><td>0.739</td><td>0.416</td><td>0.494</td><td>0.807</td><td>0.421</td><td>0.511</td></tr><tr><td>VSKNN</td><td>0.513</td><td>0.322</td><td>0.370</td><td>0.616</td><td>0.336</td><td>0.403</td><td>0.707</td><td>0.342</td><td>0.426</td></tr><tr><td>GRU4Rec</td><td>0.394</td><td>0.271</td><td>0.301</td><td>0.476</td><td>0.282</td><td>0.328</td><td>0.537</td><td>0.286</td><td>0.344</td></tr><tr><td>NARM</td><td>0.413</td><td>0.254</td><td>0.293</td><td>0.521</td><td>0.268</td><td>0.328</td><td>0.604</td><td>0.274</td><td>0.349</td></tr><tr><td>SAS(RL)</td><td>0.326</td><td>0.206</td><td>0.236</td><td>0.411</td><td>0.217</td><td>0.263</td><td>0.474</td><td>0.222</td><td>0.279</td></tr>
+                <tr><td>SAS-SQN</td><td>0.329</td><td>0.207</td><td>0.237</td><td>0.407</td><td>0.218</td><td>0.263</td><td>0.475</td><td>0.222</td><td>0.280</td></tr><tr><td>SAS-EVAL</td><td>0.335</td><td>0.216</td><td>0.245</td><td>0.412</td><td>0.226</td><td>0.270</td><td>0.476</td><td>0.230</td><td>0.287</td></tr><tr><td>GRU(RL)</td><td>0.270</td><td>0.159</td><td>0.186</td><td>0.357</td><td>0.170</td><td>0.214</td><td>0.425</td><td>0.175</td><td>0.232</td></tr><tr><td>GRU-SQN</td><td>0.286</td><td>0.170</td><td>0.199</td><td>0.366</td><td>0.181</td><td>0.225</td><td>0.444</td><td>0.186</td><td>0.244</td></tr><tr><td>GRU-EVAL</td><td>0.285</td><td>0.172</td><td>0.200</td><td>0.373</td><td>0.184</td><td>0.229</td><td>0.445</td><td>0.189</td><td>0.247</td></tr></tbody></table>
+        </div>
+        
+        <div id="tbl-retail-sqn" class="sub-content">
+            <h4>RetailRocket Clicks - Full Results</h4>
+
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.303</td><td>0.215</td><td>0.237</td><td>0.355</td><td>0.222</td><td>0.254</td><td>0.399</td><td>0.225</td><td>0.265</td></tr><tr><td>VSKNN</td><td>0.368</td><td>0.282</td><td>0.303</td><td>0.416</td><td>0.288</td><td>0.319</td><td>0.454</td><td>0.291</td><td>0.328</td></tr><tr><td>GRU4Rec</td><td>0.378</td><td>0.290</td><td>0.312</td><td>0.431</td><td>0.297</td><td>0.329</td><td>0.480</td><td>0.300</td><td>0.341</td></tr><tr><td>NARM</td><td>0.343</td><td>0.274</td><td>0.291</td><td>0.381</td><td>0.279</td><td>0.303</td><td>0.418</td><td>0.281</td><td>0.313</td></tr><tr><td>SAS(RL)</td><td>0.293</td><td>0.210</td><td>0.231</td><td>0.350</td><td>0.218</td><td>0.249</td><td>0.403</td><td>0.221</td><td>0.263</td></tr>
+                <tr><td>SAS-SQN</td><td>0.296</td><td>0.218</td><td>0.237</td><td>0.348</td><td>0.225</td><td>0.254</td><td>0.398</td><td>0.228</td><td>0.267</td></tr><tr><td>SAS-EVAL</td><td>0.296</td><td>0.216</td><td>0.236</td><td>0.349</td><td>0.223</td><td>0.253</td><td>0.399</td><td>0.227</td><td>0.266</td></tr><tr><td>GRU(RL)</td><td>0.156</td><td>0.108</td><td>0.120</td><td>0.187</td><td>0.113</td><td>0.130</td><td>0.218</td><td>0.115</td><td>0.138</td></tr><tr><td>GRU-SQN</td><td>0.196</td><td>0.134</td><td>0.149</td><td>0.235</td><td>0.139</td><td>0.162</td><td>0.271</td><td>0.141</td><td>0.171</td></tr><tr><td>GRU-EVAL</td><td>0.192</td><td>0.134</td><td>0.148</td><td>0.232</td><td>0.139</td><td>0.161</td><td>0.268</td><td>0.141</td><td>0.170</td></tr></tbody></table>
+
+            <hr>
+
+            <h4>RetailRocket Purchases - Full Results</h4>
+
+            <table class="res"><thead><tr><th></th><th>H@5</th><th>M@5</th><th>N@5</th><th>H@10</th><th>M@10</th><th>N@20</th><th>H@20</th><th>M@20</th><th>N@20</th></tr></thead><tbody><tr><td>SKNN</td><td>0.399</td><td>0.296</td><td>0.322</td><td>0.455</td><td>0.303</td><td>0.340</td><td>0.503</td><td>0.307</td><td>0.352</td></tr><tr><td>VSKNN</td><td>0.700</td><td>0.625</td><td>0.644</td><td>0.728</td><td>0.629</td><td>0.653</td><td>0.752</td><td>0.631</td><td>0.659</td></tr><tr><td>GRU4Rec</td><td>0.781</td><td>0.729</td><td>0.742</td><td>0.806</td><td>0.733</td><td>0.750</td><td>0.824</td><td>0.734</td><td>0.755</td></tr><tr><td>NARM</td><td>0.623</td><td>0.532</td><td>0.555</td><td>0.659</td><td>0.537</td><td>0.567</td><td>0.692</td><td>0.540</td><td>0.575</td></tr><tr><td>SAS(RL)</td><td>0.634</td><td>0.514</td><td>0.544</td><td>0.689</td><td>0.522</td><td>0.562</td><td>0.725</td><td>0.524</td><td>0.571</td></tr>
+                <tr><td>SAS-SQN</td><td>0.655</td><td>0.553</td><td>0.579</td><td>0.695</td><td>0.559</td><td>0.592</td><td>0.721</td><td>0.561</td><td>0.599</td></tr><tr><td>SAS-EVAL</td><td>0.657</td><td>0.549</td><td>0.576</td><td>0.695</td><td>0.554</td><td>0.588</td><td>0.723</td><td>0.556</td><td>0.596</td></tr><tr><td>GRU(RL)</td><td>0.180</td><td>0.127</td><td>0.141</td><td>0.216</td><td>0.132</td><td>0.152</td><td>0.254</td><td>0.135</td><td>0.162</td></tr><tr><td>GRU-SQN</td><td>0.238</td><td>0.168</td><td>0.186</td><td>0.285</td><td>0.175</td><td>0.201</td><td>0.331</td><td>0.178</td><td>0.213</td></tr><tr><td>GRU-EVAL</td><td>0.236</td><td>0.164</td><td>0.182</td><td>0.282</td><td>0.170</td><td>0.197</td><td>0.330</td><td>0.173</td><td>0.209</td></tr></tbody></table>
+        </div>
+
+        <div id="tbl-digi-sqn" class="sub-content">
+            <h4>Diginetica Clicks - Full Results</h4>
+        </div>
+    </div>
+
+    <div id="hyper-params" class="content">
+        <div class="tab">
+            <div class="tablink active" onclick="openTab(event, 'hyp-par-gru')">GRU Protocol Hyper-parameters</div>
+            <div class="tablink" onclick="openTab(event, 'hyp-par-sqn')">SQN Protocol Hyper-parameters</div>
+        </div>
+
+        <div id="hyp-par-gru" class="sub-content active">
+            <h4>SKNN Parameters</h4>
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>k</td><td>500</td><td>100</td><td>100</td><td>{50, 100, 500, 1000, 1500}</td></tr><tr><td>sample_size</td><td>2500</td><td>500</td><td>500</td><td>{500, 1000, 2500, 5000, 10000}</td></tr><tr><td>similarity</td><td>cosine</td><td>cosine</td><td>cosine</td><td>{'jaccard', 'cosine', 'binary', 'tanimoto'}</td></tr></tbody></table>
+
+            <hr>
+
+            <h4>VSKNN Parameters</h4>
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>k</td><td>500</td><td>500</td><td>100</td><td>{50, 100, 500, 1000, 1500}</td></tr><tr><td>sample_size</td><td>5000</td><td>500</td><td>2500</td><td>{500, 1000, 2500, 5000, 10000}</td></tr><tr><td>weighting</td><td>log</td><td>log</td><td>quadratic</td><td>{'linear', 'same', 'div', 'log', 'quadratic'}</td></tr><tr><td>weighting_score</td><td>quadratic</td><td>linear</td><td>quadratic</td><td>{'linear', 'same', 'div', 'log', 'quadratic'}</td></tr><tr><td>idf_weighting</td><td>1</td><td>5</td><td>2</td><td>{0, 1, 2, 5, 10}</td></tr></tbody></table>
+            
+            <hr>
+
+            <h4>GRU4Rec Parameters</h4>
+            <p class="param-text">Fixed Parameters: n_epochs=20, n_sample=2048, logq=1.0</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>layers</td><td>128</td><td>96</td><td>128</td><td>min=64, max=512, step=32</td></tr><tr><td>batch_size</td><td>208</td><td>208</td><td>224</td><td>min=32, max=256, step=16</td></tr><tr><td>learning_rate</td><td>0.13</td><td>0.14</td><td>0.25</td><td>min=0.01, max=0.25, step=0.005</td></tr><tr><td>dropout_p_embed</td><td>0.5</td><td>0.45</td><td>0.35</td><td>min=0, max=0.5, step=0.05</td></tr><tr><td>dropout_p_hidden</td><td>0</td><td>0</td><td>0.4</td><td>min=0, max=0.7, step=0.05</td></tr><tr><td>momentum</td><td>0.5</td><td>0.5</td><td>0</td><td>min=0, max=0.9, step=0.05</td></tr><tr><td>sample_alpha</td><td>0.2</td><td>0.2</td><td>0.3</td><td>min=0, max=1.0, step=0.1</td></tr><tr><td>bpreg</td><td>1.05</td><td>0.9</td><td>0.6</td><td>min=0, max=2.0, step=0.05</td></tr><tr><td>elu_param</td><td>0</td><td>0</td><td>0.5</td><td>{0.5, 1, 0}</td></tr>
+                <tr><td>constrained_embedding</td><td>True</td><td>True</td><td>False</td><td>{True, False}</td></tr><tr><td>loss</td><td>'cross-entropy'</td><td>'bpr-max'</td><td>'cross-entropy'</td><td>{'bpr-max', 'cross-entropy'}</td></tr></tbody></table>
+
+            <hr>
+
+            <h4>NARM Parameters</h4>
+            <p class="param-text">Fixed Parameters: epochs=50</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>batch_size</td><td>144</td><td>144</td><td>128</td><td>min=64, max=512, step=16</td></tr><tr><td>emb_dim</td><td>160</td><td>384</td><td>96</td><td>min=64, max=512, step=32</td></tr><tr><td>lr</td><td>0.0006</td><td>0.0001</td><td>0.0006</td><td>min=0.0001, max=0.1, step=0.00005</td></tr></tbody></table>
+            
+            <hr>
+
+            <h4>GRU(RL), SQN-GRU and EVAL-GRU Parameters</h4>
+            <p class="param-text">Fixed Parameters: epochs=40</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>batch_size</td><td>512</td><td>512</td><td>160</td><td>min=64, max=512, step=64</td></tr><tr><td>discount</td><td>0</td><td>0.2</td><td>0.2</td><td>min=0, max=1.0, step=0.1</td></tr><tr><td>hidden_factor</td><td>64</td><td>512</td><td>512</td><td>min=64 max=512, step=32</td></tr><tr><td>lr</td><td>0.003</td><td>0.0005</td><td>0.001</td><td>min=0.001, max=0.1, step=0.0005</td></tr></tbody></table>
+
+            <hr>
+
+            <h4>SAS(RL), SQN-SAS and EVAL-SAS Parameters</h4>
+            <p class="param-text">Fixed Parameters: epochs=40, num_blocks=1, num_heads=1</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>batch_size</td><td>512,</td><td>128,</td><td>244</td><td>min=64, max=512, step=64</td></tr><tr><td>discount</td><td>0.4,</td><td>0.7,</td><td>0.6</td><td>min=0, max=1.0, step=0.1</td></tr><tr><td>dropout</td><td>0.5,</td><td>0.5,</td><td>0.3</td><td>min=0, max=0.9, step=0.1</td></tr><tr><td>hidden_factor</td><td>64,</td><td>384,</td><td>256</td><td>min=64 max=512, step=32</td></tr><tr><td>lr</td><td>0.001</td><td>0.0015</td><td>0.0055</td><td>min=0.001, max=0.1, step=0.0005</td></tr></tbody></table>
+
+        </div>
+        
+        <div id="hyp-par-sqn" class="sub-content">
+            <h4>SKNN Parameters</h4>
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>k</td><td>100</td><td>50</td><td>50</td><td>{50, 100, 500, 1000, 1500}</td></tr><tr><td>sample_size</td><td>1000</td><td>1000</td><td>500</td><td>{500, 1000, 2500, 5000, 10000}</td></tr><tr><td>similarity</td><td>jaccard</td><td>cosine</td><td>cosine</td><td>{'jaccard', 'cosine', 'binary', 'tanimoto'}</td></tr></tbody></table>
+
+            <hr>
+
+            <h4>VSKNN Parameters</h4>
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Digitenica</th><th>Param space</th></tr></thead><tbody><tr><td>k</td><td>1500</td><td>1000</td><td>500</td><td>{50, 100, 500, 1000, 1500}</td></tr><tr><td>sample_size</td><td>2500</td><td>5000</td><td>2500</td><td>{500, 1000, 2500, 5000, 10000}</td></tr><tr><td>weighting</td><td>same</td><td>log</td><td>linear</td><td>{'linear', 'same', 'div', 'log', 'quadratic'}</td></tr><tr><td>weighting_score</td><td>quadratic</td><td>div</td><td>same</td><td>{'linear', 'same', 'div', 'log', 'quadratic'}</td></tr><tr><td>idf_weighting</td><td>5</td><td>5</td><td>0</td><td>{0, 1, 2, 5, 10}</td></tr></tbody></table>
+            
+            <hr>
+
+            <h4>GRU4Rec Parameters</h4>
+            <p class="param-text">Fixed Parameters: n_epochs=20, n_sample=2048, logq=1.0</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>layers</td><td>96</td><td>384</td><td>96</td><td>min=64, max=512, step=32</td></tr><tr><td>batch_size</td><td>144</td><td>32</td><td>144</td><td>min=32, max=256, step=16</td></tr><tr><td>learning_rate</td><td>0.05</td><td>0.035</td><td>0.14</td><td>min=0.01, max=0.25, step=0.005</td></tr><tr><td>dropout_p_embed</td><td>0.2</td><td>0.4</td><td>0.45</td><td>min=0, max=0.5, step=0.05</td></tr><tr><td>dropout_p_hidden</td><td>0.25</td><td>0.2</td><td>0.25</td><td>min=0, max=0.7, step=0.05</td></tr><tr><td>momentum</td><td>0.55</td><td>0.1</td><td>0.5</td><td>min=0, max=0.9, step=0.05</td></tr><tr><td>sample_alpha</td><td>0.6</td><td>0.4</td><td>0.1</td><td>min=0, max=1.0, step=0.1</td></tr><tr><td>bpreg</td><td>0.45</td><td>0.05</td><td>1.75</td><td>min=0, max=2.0, step=0.05</td></tr><tr><td>elu_param</td><td>0</td><td>0</td><td>0.5</td><td>{0.5, 1, 0}</td></tr>
+                <tr><td>constrained_embedding</td><td>True</td><td>True</td><td>True</td><td>{true, false}</td></tr><tr><td>loss</td><td>'cross-entropy'</td><td>'cross-entropy'</td><td>'cross-entropy'</td><td>{'bpr-max', 'cross-entropy'}</td></tr></tbody></table>
+            
+            <hr>
+
+            <h4>NARM Parameters</h4>
+            <p class="param-text">Fixed Parameters: epochs=50</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>batch_size</td><td>96</td><td>144</td><td>176</td><td>min=64, max=512, step=16</td></tr><tr><td>emb_dim</td><td>224</td><td>256</td><td>512</td><td>min=64, max=512, step=32</td></tr><tr><td>lr</td><td>0.0006</td><td>0.0001</td><td>0.0001</td><td>min=0.0001, max=0.1, step=0.00005</td></tr></tbody></table>
+            
+            <hr>
+
+            <h4>GRU(RL), SQN-GRU and EVAL-GRU Parameters</h4>
+            <p class="param-text">Fixed Parameters: epochs=40</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>batch_size</td><td>64</td><td>256</td><td>512</td><td>min=64, max=512, step=64</td></tr><tr><td>discount</td><td>0.5</td><td>0.4</td><td>0</td><td>min=0, max=1.0, step=0.1</td></tr><tr><td>hidden_factor</td><td>64</td><td>384</td><td>128</td><td>min=64 max=512, step=32</td></tr><tr><td>lr</td><td>0.001</td><td>0.0015</td><td>0.005</td><td>min=0.001, max=0.1, step=0.0005</td></tr></tbody></table>
+            
+            <hr>
+
+            <h4>SAS(RL), SQN-SAS and EVAL-SAS Parameters</h4>
+            <p class="param-text">Fixed Parameters: epochs=40, num_blocks=1, num_heads=1</p> 
+            <table class="hp"><thead><tr><th></th><th>Yoochoose</th><th>Retailrocket</th><th>Diginetica</th><th>Values</th></tr></thead><tbody><tr><td>batch_size</td><td>512</td><td>512</td><td>384</td><td>min=64, max=512, step=64</td></tr><tr><td>discount</td><td>0.2</td><td>0.5</td><td>0.2</td><td>min=0, max=1.0, step=0.1</td></tr><tr><td>dropout</td><td>0.7</td><td>0.6</td><td>0.6</td><td>min=0, max=0.9, step=0.1</td></tr><tr><td>hidden_factor</td><td>384</td><td>256</td><td>320</td><td>min=64 max=512, step=32</td></tr><tr><td>lr</td><td>0.001</td><td>0.0001</td><td>0.0001</td><td>min=0.001, max=0.1, step=0.0005</td></tr></tbody></table>
+
+        </div>
+    </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            let i, subContent, tablinks;
+            subContent = document.getElementsByClassName("sub-content");
+            for (i = 0; i < subContent.length; i++) {
+                subContent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function openParentTab(evt, parentTabName) {
+            let i, content, parentTablinks;
+            content = document.getElementsByClassName("content");
+            for (i = 0; i < content.length; i++) {
+                content[i].classList.remove("active");
+            }
+            parentTablinks = document.getElementsByClassName("parent-tablink");
+            for (i = 0; i < parentTablinks.length; i++) {
+                parentTablinks[i].classList.remove("active");
+            }
+            document.getElementById(parentTabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

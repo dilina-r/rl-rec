@@ -1,0 +1,245 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+.parent-tab,
+.tab {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    /* border: 1px solid #ddd; */
+    border-bottom: 1px #ddd white;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.tab div,
+.parent-tab div {
+    padding: 10px 20px;
+    /* border-right: 1px solid white; */
+    /* width: 250px;
+    margin-left: auto;
+    margin-right: auto; */
+    
+}
+
+.tab div:last-child,
+.parent-tab div:last-child {
+    border-right: none;
+}
+
+.tab div.active,
+.parent-tab div.active {
+    background: #0056b3;
+    /* width: 750px;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+.content,
+.sub-content {
+    width: 750px;
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
+    /* border-bottom: 1px solid #000000 white; */
+}
+
+.content.active,
+.sub-content.active {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: auto;
+    /* border-top: 1px solid #ddd; */
+}
+
+.styled-table {
+    width: auto;
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.styled-table th {
+    background: #f2f2f2;
+}
+
+.sub-div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.hp {
+    border-collapse: collapse;
+    border: none;
+    width: 725px;
+    font-family: Georgia, serif;
+}
+
+.hp th {
+    background-color: #9DE0AD;
+    border: solid 0px #bbb;
+    color: #493F3F;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.hp td {
+    background-color: #e0ffeb;
+    border: solid 0px #bbb;
+    color: #594F4F;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-align: center;
+    vertical-align: bottom;
+    word-break: normal;
+}
+
+.hp td:first-child,
+.hp th:first-child {
+    text-align: left;
+}
+
+/* .hp td:last-child, .hp th:last-child {
+    text-align: left;
+} */
+
+
+.res {
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+    border-spacing: 0;
+    font-family: Georgia, serif;
+}
+
+.res th {
+    background-color: #a9eeff;
+    /* border: solid 1px #9b9b9b; */
+    color: #00009b;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.res td {
+    background-color: #e2f8ff;
+    /* border: solid 1px #9b9b9b; */
+    color: #010066;
+    font-size: 14px;
+    padding: 4px 10px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.res td:first-child, .res th:first-child {
+    text-align: left;
+    font-weight: bold;
+}
+
+
+
+.auth {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.auth td {
+    border-style: solid;
+    border-width: 0px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 0px 20px;
+    word-break: normal;
+}
+
+.auth th {
+    border-style: solid;
+    border-width: 0px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 0px 20px;
+    word-break: normal;
+}
+
+.auth .auth-uni {
+    font-family: Georgia, serif !important;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: top
+}
+
+.auth .auth-name {
+    border-color: #000000;
+    font-family: Georgia, serif !important;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top
+}
+
+.paper-title {
+    color: #0075cf;
+    pad: 10px;
+    line-height: 1.5;
+    text-shadow: 0px 0px 1px #444444;
+}
+
+.auth .auth-em {
+    border-color: #000000;
+    font-family: Georgia, serif !important;
+    text-align: center;
+    vertical-align: top
+}
+
+.abstract {
+    font-family: Georgia, serif !important;
+    text-align: justify;
+    font-size: 15px;
+    width: 700px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    pad: 10px;
+    line-height: 1.5;
+}
+
+.sub-title {
+    font-size: 15px;
+    text-align: center;
+    color: #0075cf;
+    pad: 10px;
+    border: 5px;
+}
+
+.param-text {
+    font-size: 15px;
+    text-align: center;
+    color: #0d1921;
+
+}
