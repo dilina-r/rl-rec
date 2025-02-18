@@ -10,15 +10,7 @@
     </style>
 </head>
 <body>
-    <div class="parent-tab">
-        <div class="parent-tablink active" onclick="openParentTab(event, 'intro')">Introduction</div>
-        <div class="parent-tablink" onclick="openParentTab(event, 'gru-results')">GRU4Rec Protocol Results</div>
-        <div class="parent-tablink" onclick="openParentTab(event, 'sqn-results')">SQN Protocol Results</div>
-        <div class="parent-tablink" onclick="openParentTab(event, 'hyper-params')">Hyper-parameters</div>
-    </div>
-
-
-    <div id="intro" class="content active">
+    <div class="header">
         <h2 class="paper-title">Reassessing the Effectiveness of Reinforcement Learning based Recommender Systems for Sequential Recommendation</h2>
         
         <h3 class="sub-title">
@@ -45,6 +37,18 @@
         </table>
 
         <hr>
+
+    </div>
+    <div class="parent-tab">
+        <div class="parent-tablink active" onclick="openParentTab(event, 'intro')">Abstract</div>
+        <div class="parent-tablink" onclick="openParentTab(event, 'gru-results')">GRU4Rec Protocol Results</div>
+        <div class="parent-tablink" onclick="openParentTab(event, 'sqn-results')">SQN Protocol Results</div>
+        <div class="parent-tablink" onclick="openParentTab(event, 'hyper-params')">Hyper-parameters</div>
+    </div>
+
+
+    <div id="intro" class="content active">
+       
 
         <p class="abstract">
             Over the past few years, researchers have explored the use of reinforcement learning (RL) for sequential recommendation problems. However, since RL techniques commonly target at optimizing long-term rewards, it is surprising that RL-based models are reported to be competitive with traditional supervised models when evaluated under the myopic next-item prediction protocol. A recent study suggests that reported performance gains of combining RL with supervised learning techniques, as done in the Self-Supervised Q-Learning (SQN) framework, may actually not come from learning an optimal policy, but that the RL component helps to learn embeddings that encode the users' past interactions. Given these observations, we aimed to reassess the performance of RL-enhanced sequential recommendations in the SQN framework. While we were able to reproduce the results reported in the respective papers, we found that properly-tuned supervised learning models like GRU4Rec substantially outperform the proposed RL-models from the literature. Our analyses furthermore revealed that there is a significant inconsistency in terms of evaluation protocols in the literature, and that the use of third-party implementations of existing models may lead to unreliable conclusions. Overall, still more research and alternative evaluation schemes seem required to fully leverage the power of RL for sequential recommendation tasks.
