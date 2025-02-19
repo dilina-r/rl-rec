@@ -1,0 +1,30 @@
+type: single # single|window, maybe add opt
+key: baselines #added to the csv names
+evaluation: evaluation #evaluation|evaluation_last|evaluation_multiple|evaluation_user_based|evaluation_user_based_multiple
+
+data:
+  name: yoochoose #added in the end of the csv names
+  folder: Data/Yoochoose/gru_protocol/
+  prefix: yoochoose
+results:
+  folder: results/yoochoose-gru-protocol/
+
+
+metrics:
+- class: accuracy.HitRate
+  length: [1,2,3,5,10,20]
+- class: accuracy.MRR
+  length: [1,2,3,5,10,20]
+- class: saver.Saver
+  length: [20]
+- class: time_memory_usage.Time_usage_training
+- class: time_memory_usage.Time_usage_testing
+- class: time_memory_usage.Memory_usage
+
+algorithms:
+- class: knn.sknn.ContextKNN
+  params: { k: 500, sample_size: 2500, similarity: cosine }
+  key: sknn
+- class: knn.vsknn.VMContextKNN
+  params: { k: 500, sample_size: 5000, weighting: log , weighting_score: quadratic, idf_weighting: 1  }
+  key: vsknn

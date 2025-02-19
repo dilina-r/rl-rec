@@ -19,11 +19,11 @@ The algorithms and pre-processing methods are based on existing code developed a
 
 Below environments require Anaconda to be installed. Download and Install from here (https://www.anaconda.com/distribution/)
 
-### (i) KNN approaches
+### KNN approaches
 
 - We used the session-rec framework. Please refer to [session-rec](https://github.com/rn5l/session-rec) 
 
-### (ii) GRU4Rec and NARM approaches (PyTorch)
+### GRU4Rec and NARM approaches (PyTorch)
 
 - Run the following command to create the GPU conda environment.
 
@@ -36,7 +36,7 @@ Below environments require Anaconda to be installed. Download and Install from h
     pip install -r requirements_gpu.txt
     ```
 
-### (iii) RL baselines and SQN, EVAL approaches
+### RL baselines and SQN, EVAL approaches
 
 - Since the SQN implementations are based on older Tensorflow 1.x versions, these cannot be run on newer GPUs. To create the CPU conda environment, run:
 
@@ -69,9 +69,15 @@ Below environments require Anaconda to be installed. Download and Install from h
 
 - The `run_preprocess.sh` script includes all the commands to generate the data-splits for the three datasets (Yoochoose, RetailRocket, Diginetica) using both the *GRU4Rec-protocol* and *SQN-protocol* protocols. Before running the script, provide the directory paths of the raw datasets into the respective parameters as instructed in the file comments. 
 
+> [!NOTE]  
+> It is recommended to run the preprocess scripts in the `tf1` python environment. This is to avoid errors with the SQN-framework models, that may occur loading dataset files processed with newer versions of the `pandas` package.
+
+
 # 4. Running the Code
 
-- To run each algorithm, please run the respective scipts provided, in the respective conda environments. 
+### GRU4Rec, NARM and RL-methods
+
+- To run each algorithm, follow the commands in the scipts provided. Make sure to run the commands in the respective conda environments. 
 
     ```
     bash run_gru4rec.sh
@@ -81,7 +87,13 @@ Below environments require Anaconda to be installed. Download and Install from h
 
 - The **run_rl.sh** script contains the commands for each RL baseline and the RL-enhanced SQN and EVAL methods. Comment/uncomment as needed to run each approach.
 
+### SKNN and VSKNN
+
 - To run the SKNN and VSKNN methods, we used the [session-rec](https://github.com/rn5l/session-rec) framework with the processed datasets. To reproduce our results, refer to our [Online material](https://dilina-r.github.io/rl-rec/), where we provide the full results and hyperparameters for each protocol.
+
+- A sample config file `knn_config.yml` is provided, which can be used with the session-rec framework to run the KNN methods. First, download/clone the session-rec framework and setup the python environment following the instructions from the authors of session-rec. Then copy the config file to the session-rec directory. 
+
+- In the config file, update the path to the relevent pre-processed dataset directory and run the command `python run_config.py knn_config.yml`.
 
 
 > [!NOTE]  
